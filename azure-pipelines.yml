@@ -1,15 +1,17 @@
 # Python package
-- task: AzureFunctionApp@2
-  inputs:
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+  task: AzureFunctionApp@2
+    inputs:
     connectedServiceNameARM: 'Azure subscription 1(41da9e42-1b55-4f26-86e1-4df5647f20bd)'
     appType: 'functionAppLinux'
     appName: 'Testandocoisas1'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     runtimeStack: 'PYTHON|3.10'
     deploymentMethod: 'auto'
-# Create and test a Python package on multiple Python versions.
-# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+    
 
 trigger:
 - main

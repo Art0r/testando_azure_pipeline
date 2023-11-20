@@ -33,9 +33,12 @@ steps:
 
 - task: AzureFunctionApp@2
   inputs:
-    connectedServiceNameARM: 'Azure subscription 1(41da9e42-1b55-4f26-86e1-4df5647f20bd)'
+    connectedServiceNameARM: 'Azure subscription 1(1)(41da9e42-1b55-4f26-86e1-4df5647f20bd)'
     appType: 'functionAppLinux'
     appName: 'Testandocoisas1'
+    deployToSlotOrASE: true
+    resourceGroupName: 'DefaultResourceGroup-CQ'
+    slotName: 'production'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     runtimeStack: 'PYTHON|3.10'
-    deploymentMethod: 'auto'
+    deploymentMethod: 'zipDeploy'
